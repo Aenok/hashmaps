@@ -88,6 +88,15 @@ class HashMap {
         return retVal;
     }
 
+    values() {
+        let retVal = []
+        for(let i = 0; i < this._buckets.length; i++) {
+            for(let j = 0; j < this._buckets[i].size(); j++) {
+                retVal.push(this._buckets[i].lis[j].value);            }
+        }
+        return retVal;        
+    }
+
 }
 
 // let newNode = new Node('apple', 'red');
@@ -108,6 +117,7 @@ test.set('kite', 'pink')
 test.set('lion', 'golden')
 test.set('lioness', 'platinum');
 console.log(test.keys());
+console.log(test.values());
 // console.log(test);
 // test.clear();
 // console.log(test);
