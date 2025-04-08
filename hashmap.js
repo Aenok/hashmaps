@@ -92,9 +92,22 @@ class HashMap {
         let retVal = []
         for(let i = 0; i < this._buckets.length; i++) {
             for(let j = 0; j < this._buckets[i].size(); j++) {
-                retVal.push(this._buckets[i].lis[j].value);            }
+                retVal.push(this._buckets[i].lis[j].value);            
+            }
         }
         return retVal;        
+    }
+
+    entries() {
+        let str = `[`;
+        for(let i = 0; i < this._buckets.length; i++) {
+            for(let j = 0; j < this._buckets[i].size(); j++) {
+                str += `[${this._buckets[i].lis[j].key}, ${this._buckets[i].lis[j].value}], `;
+            }
+        }
+        str = str.slice(0, str.length-2);
+        str += ']'
+        return str;
     }
 
 }
@@ -118,6 +131,7 @@ test.set('lion', 'golden')
 test.set('lioness', 'platinum');
 console.log(test.keys());
 console.log(test.values());
+console.log(test.entries());
 // console.log(test);
 // test.clear();
 // console.log(test);
