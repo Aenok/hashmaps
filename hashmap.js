@@ -1,4 +1,6 @@
-import { Node, LinkedList } from './ll.js';
+
+import { Node } from './node.js';
+import { LinkedList} from './linkedLists.js';
 
 class HashMap {
     constructor() {
@@ -23,6 +25,41 @@ class HashMap {
 
         return hashCode;
     }
+
+    set(key, value) {
+        let bucketIndex = this.hash(key);
+        this.buckets[bucketIndex].append(key, value);
+    }
+
+    get(key) {
+        let bucketIndex = this.hash(key);
+        let llIndex = this.buckets[bucketIndex].findIndex(key);
+        if(llIndex != -1) {
+            return this.buckets[bucketIndex].lis[llIndex].value;
+        } else {
+            return null;
+        }
+    }
+
+
 }
 
+// let newNode = new Node('apple', 'red');
+// console.log(newNode.toString());
 let test = new HashMap();
+// console.log(test);
+test.set('apple', 'red')
+test.set('banana', 'yellow')
+test.set('carrot', 'orange')
+test.set('dog', 'brown')
+test.set('elephant', 'gray')
+test.set('frog', 'green')
+test.set('grape', 'purple')
+test.set('hat', 'black')
+test.set('ice cream', 'white')
+test.set('jacket', 'blue')
+test.set('kite', 'pink')
+test.set('lion', 'golden')
+// test.buckets[11].toString();
+console.log(test.get('hatt'));
+// console.log(test.buckets);
