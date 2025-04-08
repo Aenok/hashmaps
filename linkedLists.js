@@ -73,11 +73,9 @@ export class LinkedList {
         if(this.head == null || this.tail == null) {
             console.log(`Empty List`);
         } else {
-            let str = `[[${this.lis[0].key}, ${this.lis[0].value})]`;;
-            for(let i = 1; i < this.size(); i++) {
-                str += `, [${this.lis[i].key}, ${this.lis[i].value})]`;
+            for(let i = 0; i < this.size(); i++) {
+                str += `[${this.lis[i].key}, ${this.lis[i].value})]`;
             }
-            str += `]`;
             console.log(str);
         }
     }
@@ -98,7 +96,7 @@ export class LinkedList {
         }
     }
 
-    removateAt(index) {
+    removeAt(index) {
         if( index >= this.size()) {
             this.pop();
         } else if(index == 0) {
